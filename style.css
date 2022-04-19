@@ -1,0 +1,14 @@
+main{
+    display:grid;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+#products{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#pic {
+    width: 200px;
+    height: 200px;
+   
+}
