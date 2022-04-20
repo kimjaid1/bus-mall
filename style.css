@@ -7,8 +7,16 @@ main{
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-#pic {
+#pic1 {
     width: 200px;
     height: 200px;
    
+}
+#pic2{
+    width: 200px;
+    height: 200px; 
+}
+#pic3{
+    width: 200px;
+    height: 200px;
 }
