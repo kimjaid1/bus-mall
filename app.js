@@ -1,18 +1,19 @@
 'use strict'
 
 const picContainerElement = document.getElementById('products');
-const picContainerElement = document.getElementById('imagecontainer1');
-const picContainerElement = document.getElementById('imagecontainer2');
-const picContainerElement = document.getElementById('imagecontainer3');
-const picContainerElement = document.getElementById('image1title');
-const picContainerElement = document.getElementById('image2title');
-const picContainerElement = document.getElementById('image3title');
+const pic1Element = document.getElementById('pic1');
+const pic2Element = document.getElementById('pic2');
+const pic3Element = document.getElementById('pic3');
+const pic1TitleElement = document.getElementById('image1title');
+const pic2TitleElement = document.getElementById('image2title');
+const pic3TitleElement = document.getElementById('image3title');
 
-let count=0
+let count = 0;
 
 let pic1 = null;
 let pic2 = null;
 let pic3 = null; 
+
 function Image(name, imgPath,){
     this.name = name;
     this.imgPath = imgPath;
@@ -22,9 +23,9 @@ function Image(name, imgPath,){
 
 Image.allImages = []
 
-Image.prototype.renderImage = funtction(img,h2); {
+Image.prototype.renderImage = function(img, h2){
     img.src = this.imgPath;
-    h2.textContent = thid.name;
+    h2.textContent = this.name;
     this.views ++;
 }
 
@@ -49,27 +50,28 @@ Image.allImages.push(new Image('Bag' , './images/bag.jpg'));
 
 function getThreeImages(){
     const cantUse = [pic1, pic2, pic3];
-    if(cantUse.inlcludes(pic1)){
+    if(cantUse.includes(pic1)){
         let picOne = Math.floor(Math.random() * Image.allImages.length);
         pic1= Image.allImages[picOne];
     }
     cantUse.push[pic1]
     if(cantUse.includes(pic2)){
-        let picTwo = Math.floor(Math.random() * Image.allImages.lenght);
+        let picTwo = Math.floor(Math.random() * Image.allImages.length);
         pic2 = Image.allImages[picTwo];
     }
     cantUse.push[pic2]
     if(cantUse.includes(pic3)){
-        let picThree = Math.floor(Math.random()* Image.allImages.lenght);
+        let picThree = Math.floor(Math.random()* Image.allImages.length);
         pic3 = Image.allImages[picThree];
     }
-
-    function renderImage(){
-        pic1.renderImage(firstPicElement, firstPicTitle);
-        pic2.renderImage(secondPicElement, secondPicTitle);
-        pic3.renderImage(thirdPicElement, thirdPicTitle);
-    }
+    cantUse.push[pic3];
 }
 
-
+    function renderImage(){
+        pic1.renderImage(pic1Element, pic1TitleElement);
+        pic2.renderImage(pic2Element, pic2TitleElement);
+        pic3.renderImage(pic3Element, pic3TitleElement);
+    }
+getThreeImages();
+renderImage();
 
