@@ -8,32 +8,42 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="images/">
     <link rel="stylesheet" href="reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Catalog Survey</h1>
+        <div id="h1">
+        <h1>BUS MALL</h1>
+    </div>
     </header>
     <main>
         
-        <section id="sidebar"></section>
+        <section id="sidebar">
+            <p id="description"> Bus Mall needs your help choosing products for it's catalog. 25 sets of 3 images will pop up for you to choose from, the most selected items will be in the new catalog. You will be able to see your results at the end so click away!</p>
+        </section>
 <section id="products">
-<div>
-    <h2 id=image1title></h2>
+<div id="imgContainer1">
+    <h2 id=image1title ></h2>
 <img id="pic1" src="images/water-can.jpg" >
 </div>
-<div>
+<div id="imgContainer2">
 
     <h2 id="image2title"></h2>
 <img id="pic2" src="images/dog-duck.jpg" >
 </div>
-<div>
+<div id="imgContainer3">
 <h2 id="image3title"></h2>
 
 <img id="pic3" src="images/pen.jpg" >
 </div>
 </section>
-<section id="sidebar"></section>
+<section id="sidebar2">
+    <p id="thankyou">Thank You for your help and enjoy your ride!</p>
+</section>
+<canvas id="myChart"></canvas>
 </main>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 <script src="app.js"></script>
 </html>

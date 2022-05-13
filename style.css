@@ -1,21 +1,74 @@
+body{
+    background-color: rgb(243, 164, 67);
+}
 header{
     text-align: center;
- 
+    height: 80px;
+   background-color: darkorange;
 }
+#h1{
+    text-shadow: 5px 5px lightskyblue;
+    margin-top: 35px;
+    font-family: Koulen;
+    font-size: 55px;
+}
+#image1title{
+ 
+    text-align: center;
+    font-family: Roboto Mono;
+}
+#image2title{
+    text-align: center;
+   font-family: Roboto Mono ; 
+}
+#image3title{
+    text-align: center;
+    font-family:  Roboto Mono;
+
+}
+
 
 main{
     display:grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 #products{
+    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 25px;
 }
+#sidebar{
+    border: 6px solid darkblue;
+    border-radius: 15px;
+    background-color: rgb(135, 206, 250);
+    width: 215px;
+    text-align: center;
+    margin: auto;
+    height: 250px;
+}
+#sidebar2{
+    border: 6px solid darkblue;
+    border-radius: 15px;
+    background-color: rgb(135, 206, 250);
+    width: 215px;
+    text-align: center;
+    margin: auto;
+    height: 250px;
+}
+#description{ 
+    font-family: Roboto Mono;
+    padding: 15px;
+    
+}
+#thankyou{
+    padding: 15px;
+    font-family: Roboto Mono;
+    height: 200px
+
+}
 img{
     border-radius: 10%;
-    
-
 }
 
 #pic1 {

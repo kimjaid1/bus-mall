@@ -8,6 +8,8 @@ const pic1TitleElement = document.getElementById('image1title');
 const pic2TitleElement = document.getElementById('image2title');
 const pic3TitleElement = document.getElementById('image3title');
 
+
+
 let count = 0;
 
 let pic1 = null;
@@ -72,6 +74,128 @@ function getThreeImages(){
         pic2.renderImage(pic2Element, pic2TitleElement);
         pic3.renderImage(pic3Element, pic3TitleElement);
     }
+    function putImagesInStorage(){
+        let stringArray = JSON.stringify(Image.allImages);
+        if (stringArray = []){
+            localStorage.setItem('image', stringArray);
+        }
+        else (localStorage.setItem('image', stringArray));
+    }
+    function getImagesFromStorage(){
+        let storedImage = localStorage.getItem('image');
+        if(storedImage){
+            let newImage = JSON.parse(storedImage);
+            for (let image of newImage ){
+                let myNewImage = new Image(image.name, image.imgPath, image.clicks, image.view);
+                Image.allImages.push(myNewImage);
+            }
+        }
+    }
+
+    function makeChart(){
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        let imageName = [];
+        let imageClicks = [];
+        let imageViews = [];
+
+        for (let image of Image.allImages){
+            imageName.push(image.name);
+            imageClicks.push(image.clicks);
+            imageViews.push(image.views);
+
+        }
+        const myChart = new Chart (ctx, {
+            type: 'bar',
+            data: {
+                labels: imageName,
+                datasets: [{
+                    label: "# of Clicks",
+                    data: imageClicks,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(31, 161, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 2)',
+                        'rgba(54, 162, 235, 2)',
+                        'rgba(255, 206, 86, 2)',
+                        'rgba(75, 192, 192, 2',
+                        'rgba(153, 102, 255, 2)',
+                        'rgba(31, 161, 70, 2)'
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: '# of Views',
+                    data: imageViews, 
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(31, 161, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 2)',
+                        'rgba(54, 162, 235, 2)',
+                        'rgba(255, 206, 86, 2)',
+                        'rgba(75, 192, 192, 2)',
+                        'rgba(153, 102, 255, 2)',
+                        'rgba(31, 161, 64, 2)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options:{
+                scales:{
+                    y:{
+                        beginAtZero : true
+                    }
+                }
+            }
+        });
+    }
+    function removeImages(){
+        document.getElementById('imgContainer1').style.display = 'none';
+        document.getElementById('imgContainer2').style.display = 'none';
+        document.getElementById('imgContainer3').style.display = 'none';
+        document.getElementById('description').style.display = 'none';
+        document.getElementById('sidebar2').style.display = 'none';
+        document.getElementById('sidebar').style.display = 'none';
+
+      }
+    
+       function handleClick(e){
+        let imageClicked = e.target.id;
+        if(imageClicked === 'pic1' || imageClicked === 'pic2' || imageClicked === 'pic3'){
+          count++;
+        }
+        if(imageClicked === 'pic1'){
+          pic1.clicks++;
+        }
+        if (imageClicked === 'pic2'){
+          pic2.clicks++;
+        }
+        if (imageClicked = 'pic3'){
+          pic3.clicks++;
+        }
+        getThreeImages();
+        renderImage();
+        if (count === 25){
+            removeImages();
+            makeChart();
+        }
+        
+        putImagesInStorage();
+      }
+
+      picContainerElement.addEventListener('click', handleClick);
 getThreeImages();
 renderImage();
 
